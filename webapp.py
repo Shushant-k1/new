@@ -33,9 +33,9 @@ def predict_class(image) :
     with st.spinner('Loading Model...'):
         classifier_model = keras.models.load_model(r'final_model.h5', compile = False)
 
-    shape = ((256,256,3))
+    shape = ((224,224,3))
     model = keras.Sequential([hub.KerasLayer(classifier_model, input_shape = shape)])     # ye bhi kaam kar raha he
-    test_image = image.resize((256, 256))
+    test_image = image.resize((224, 224))
     test_image = keras.preprocessing.image.img_to_array(test_image)
     test_image /= 255.0
     test_image = np.expand_dims(test_image, axis = 0)
