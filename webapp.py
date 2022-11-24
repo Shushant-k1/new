@@ -42,7 +42,7 @@ def predict_class(image) :
     class_name = ['Potato__Early_blight', 'Potato__Late_blight', 'Potato__healthy']
 
     prediction = model.predict(test_image)[0]
-    confidence = round(100 * (np.max(prediction)), 2)
+    confidence = round(100 * (np.max(prediction)[0]), 2)
     final_pred = class_name[np.argmax(prediction)]
     return final_pred, confidence
 
