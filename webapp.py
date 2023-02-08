@@ -17,7 +17,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html = True)
 st.title('Potato Leaf Disease Prediction')
 
 def main() :
-    file_uploaded = st.file_uploader('Choose an image...')
+    file_uploaded = st.file_uploader('Choose an image...', type = "jpg" )
     if file_uploaded is not None :
         image = Image.open(file_uploaded)
         st.write("Uploaded Image.")
@@ -27,7 +27,7 @@ def main() :
         st.pyplot(figure)
         result, confidence = predict_class(image)
         st.write('Prediction : {}'.format(result))
-        #st.write('Confidence : {}%'.format(confidence))
+        st.write('Confidence : {}%'.format(confidence))
 
 def predict_class(image) :
     with st.spinner('Loading Model...'):
@@ -68,7 +68,7 @@ a:hover,  a:active {
 }
 </style>
 <div class="footer">
-<p align="center"> Developed with ❤ by Deepak kumar , Shushant Kumar and Shreyansh </p>
+<p align="center"> <a href="https://www.linkedin.com/in/ronylpatil/">Developed with ❤ by ronil</a></p>
 </div>
         """
 st.markdown(footer, unsafe_allow_html = True)
